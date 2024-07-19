@@ -79,9 +79,9 @@ Start the development server:.
 ![Contact Add](./assets/Readme/Contact_add.png),
 ![Contact Add](./assets/Readme/Contact_addplus.png)
 
-6. Modal- Edid Contact
+6. Modal- Edit Contact
 
-![Modal- Edid Contact](./assets/Readme/Edid_modal.png)
+![Modal- Edit Contact](./assets/Readme/Edit_modal.png)
 
 ## Contact
 
