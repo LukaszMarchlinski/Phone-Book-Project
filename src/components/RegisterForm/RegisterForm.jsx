@@ -12,8 +12,6 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 
-
-
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
@@ -49,9 +47,16 @@ export const RegisterForm = () => {
       password,
     };
 
-    dispatch(userRegister(credentials));
+    console.log('Submitting form with credentials:', credentials);
 
-    resetForm();
+    dispatch(userRegister(credentials))
+      .then(response => {
+        console.log('Registration successful:', response);
+        resetForm();
+      })
+      .catch(error => {
+        console.error('Registration error:', error);
+      });
   };
 
   return (
@@ -59,54 +64,54 @@ export const RegisterForm = () => {
       <HeadTitle title={'Register page'} size={30} />
       <Box component="form" onSubmit={handleFormSubmit}>
         <FormControl sx={{ width: '25ch', mt: 1 }}>
-          
           <div>
             <TextField
-            onChange={handleChange}
-            value={name}
-            name="name"
-            label=" User name"
-            variant="outlined"
-            color="info"
-            id="outlined-basic"
-            sx={{mb: 1,
-              '& .MuiInputBase-input': {
-                color: 'black', // Kolor tekstu wejściowego
-              },
-              '& .MuiInputLabel-root': {
-                color: 'black', // Kolor etykiety
-              },
-              '& .MuiInputLabel-root.Mui-focused': {
-                color: '#93F600', // Kolor etykiety w stanie focus
-                fontSize: '20px', // Wielkość etykiety w stanie focus
-                transform: 'translate(14px, -12px) scale(0.75)', // Transformacja etykiety w stanie focus
-                backgroundColor: 'white', // Kolor tła etykiety w stanie focus
-                padding: '0 4px',
-              },
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#1c84fa', // Kolor obramowania domyślnego
+              onChange={handleChange}
+              value={name}
+              name="name"
+              label="User name"
+              variant="outlined"
+              color="info"
+              id="outlined-basic"
+              sx={{
+                mb: 1,
+                '& .MuiInputBase-input': {
+                  color: 'black',
                 },
-                '&:hover fieldset': {
-                  borderColor: '#1c84fa', // Kolor obramowania podczas hover
+                '& .MuiInputLabel-root': {
+                  color: 'black',
                 },
-                '&:active fieldset': {
-                  borderColor: '#1c84fa', // Kolor obramowania podczas hover
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: '#93F600',
+                  fontSize: '20px',
+                  transform: 'translate(14px, -12px) scale(0.75)',
+                  backgroundColor: 'white',
+                  padding: '0 4px',
                 },
-                '& .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#54b95f', // Kolor obramowania
-                  borderWidth: '3px',
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: '#1c84fa',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: '#1c84fa',
+                  },
+                  '&:active fieldset': {
+                    borderColor: '#1c84fa',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#54b95f',
+                    borderWidth: '3px',
+                  },
+                  backgroundColor: 'ffffff',
                 },
-                backgroundColor: 'ffffff',
-              },
-            }}
-            type="text"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces."
-            autoComplete="off"
-            required
-            style={{ background: "rgb(255, 255, 255, 0.8)" }}
-          />
+              }}
+              type="text"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces."
+              autoComplete="off"
+              required
+              style={{ background: "rgb(255, 255, 255, 0.8)" }}
+            />
             <TextField
               type="email"
               name="email"
@@ -117,53 +122,54 @@ export const RegisterForm = () => {
                 mb: 2, 
                 width: '25ch',
                 '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'white', // Ustaw kolor tła dla całego pola tekstowego
+                  backgroundColor: 'white',
                   '& fieldset': {
-                    borderColor: '#54b95f', // Kolor obramowania
+                    borderColor: '#54b95f',
                     borderWidth: '3px',
                   },
                   '&:hover fieldset': {
-                    borderColor: '#1c84fa', // Kolor ramki podczas najechania
+                    borderColor: '#1c84fa',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#1c84fa', // Kolor ramki podczas fokusa
+                    borderColor: '#1c84fa',
                     borderWidth: '3px',
                   },
                   '& input': {
-                    color: 'black', // Kolor tekstu wewnątrz pola
-                    backgroundColor: 'white', // Kolor tła wewnątrz pola
+                    color: 'black',
+                    backgroundColor: 'white',
                   },
                   '& input::placeholder': {
-                    color: 'black', // Kolor tekstu placeholdera
+                    color: 'black',
                   },
-                  // Stylizacja dla autofill
                   '& input:-webkit-autofill': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu
-                    WebkitBoxShadow: '0 0 0 100px white inset', // Zapewnia, że tło pozostaje białe
-                    WebkitTextFillColor: 'black !important', // Kolor tekstu po automatycznym wypełnieniu
+                    backgroundColor: 'white !important',
+                    WebkitBoxShadow: '0 0 0 100px white inset',
+                    WebkitTextFillColor: 'black !important',
                   },
-                  // Dodatkowe pseudo-stany dla autofill
                   '& input:-webkit-autofill:hover': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy najechaniu
+                    backgroundColor: 'white !important',
                   },
                   '& input:-webkit-autofill:focus': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy fokusu
+                    backgroundColor: 'white !important',
                   },
                   '& input:-webkit-autofill:active': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy aktywacji
+                    backgroundColor: 'white !important',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: 'black', // Kolor etykiety w normalnym stanie
+                  color: 'black',
                 },
                 '& .MuiInputLabel-root.Mui-focused': {
-                  color: '#93F600', // Kolor etykiety podczas fokusa
+                  color: '#93F600',
                   fontSize: '20px',
-                  transform: 'translate(14px, -12px) scale(0.75)', // Transformacja etykiety w stanie focus
-                  backgroundColor: 'white', // Kolor tła etykiety w stanie focus
+                  transform: 'translate(14px, -12px) scale(0.75)',
+                  backgroundColor: 'white',
                   padding: '0 4px',
                 },
               }}
+              onChange={handleChange}
+              value={email}
+              required
             />
 
             <TextField
@@ -176,58 +182,59 @@ export const RegisterForm = () => {
                 mb: 2, 
                 width: '25ch',
                 '& .MuiOutlinedInput-root': {
-                  backgroundColor: 'white', // Kolor tła dla całego pola tekstowego
+                  backgroundColor: 'white',
                   '& fieldset': {
-                    borderColor: '#54b95f', // Kolor obramowania
+                    borderColor: '#54b95f',
                     borderWidth: '3px',
                   },
                   '&:hover fieldset': {
-                    borderColor: '#1c84fa', // Kolor ramki podczas najechania
+                    borderColor: '#1c84fa',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: '#1c84fa', // Kolor ramki podczas fokusa
+                    borderColor: '#1c84fa',
                     borderWidth: '3px',
                   },
                   '& input': {
-                    color: 'black', // Kolor tekstu wewnątrz pola
-                    backgroundColor: 'white', // Kolor tła wewnątrz pola
+                    color: 'black',
+                    backgroundColor: 'white',
                   },
                   '& input::placeholder': {
-                    color: 'black', // Kolor tekstu placeholdera
+                    color: 'black',
                   },
-                  // Stylizacja dla autofill
                   '& input:-webkit-autofill': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu
-                    WebkitBoxShadow: '0 0 0 100px white inset', // Zapewnia, że tło pozostaje białe
-                    WebkitTextFillColor: 'black !important', // Kolor tekstu po automatycznym wypełnieniu
+                    backgroundColor: 'white !important',
+                    WebkitBoxShadow: '0 0 0 100px white inset',
+                    WebkitTextFillColor: 'black !important',
                   },
-                  // Dodatkowe pseudo-stany dla autofill
                   '& input:-webkit-autofill:hover': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy najechaniu
+                    backgroundColor: 'white !important',
                   },
                   '& input:-webkit-autofill:focus': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy fokusu
+                    backgroundColor: 'white !important',
                   },
                   '& input:-webkit-autofill:active': {
-                    backgroundColor: 'white !important', // Kolor tła po automatycznym wypełnieniu przy aktywacji
+                    backgroundColor: 'white !important',
                   },
                 },
                 '& .MuiInputLabel-root': {
-                  color: 'black', // Kolor etykiety w normalnym stanie
+                  color: 'black',
                 },
                 '& .MuiInputLabel-root.Mui-focused': {
-                  color: '#93F600', // Kolor etykiety podczas fokusa
+                  color: '#93F600',
                   fontSize: '20px',
-                  transform: 'translate(14px, -12px) scale(0.75)', // Transformacja etykiety w stanie focus
-                  backgroundColor: 'white', // Kolor tła etykiety w stanie focus
+                  transform: 'translate(14px, -12px) scale(0.75)',
+                  backgroundColor: 'white',
                   padding: '0 4px',
                 },
               }}
+              onChange={handleChange}
+              value={password}
+              required
             />
           </div>
         </FormControl>
         <Stack>
-        <Button
+          <Button
             type="submit"
             variant="outlined"
             color="success"
@@ -235,14 +242,14 @@ export const RegisterForm = () => {
             sx={{
               mb: 2,
               background: "rgb(28, 132, 250, 0.8)",
-              color: "#ffffff", // Kolor tekstu
+              color: "#ffffff",
               padding: '14px 0px',
               '&:hover': {
-                backgroundColor: "#93F600", // Kolor tła po najechaniu
+                backgroundColor: "#93F600",
                 borderColor: '#93F600',
               },
             }}
-              >
+          >
             Register
           </Button>
         </Stack>
