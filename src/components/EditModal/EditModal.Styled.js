@@ -15,10 +15,10 @@ export const Backdrop = styled.div`
 `;
 
 export const Modal = styled.div`
-  width: 300px;
+  width: 400px;
   padding: 40px;
   position: relative;
-  background-color: rgba(178, 186, 187);
+  background-color: rgba(215, 234, 255, 0.9);
 
   border-radius: 8px;
 `;
@@ -37,6 +37,10 @@ export const CloseBtn = styled.button`
   height: 40px;
 
   color: #54b95f;
+  &:hover,
+  &:focus {
+    color: #93F600;
+  }
 
   padding: 3px;
   background-color: transparent;
@@ -55,9 +59,8 @@ export const CloseBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #1c84fa;
     transform: scale(0.9);
-    color: #456642;
   }
 `;
 
@@ -72,29 +75,32 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   display: block;
-  height: 30px;
+  height: 50px;
   border-radius: 5px;
-
   margin-left: 10px;
   padding-left: 15px;
-  height: 50px;
-
-  border: none;
-
-  &:first-child {
-    margin-bottom: 10px;
-  }
-
   font-size: 18px;
   font-family: inherit;
-  background-color: rgba(255, 255, 255, 0.5);
-
-  transition: border-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px solid #54b95f; // Początkowy kolor obramowania
+  
+  transition: 
+    border-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
     background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  &:hover,
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: #93F600; // Kolor obramowania przy najechaniu
+  }
+
   &:focus {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 1);
+    border-color: #1c84fa; // Kolor obramowania podczas fokusa
+    outline: none;
+  }: none; // Usuń domyślną obramowanie fokusa
+  }
+     &:first-child {
+    margin-bottom: 10px;
   }
 `;
 
@@ -105,6 +111,10 @@ export const SubmitBtn = styled.button`
   height: 50px;
 
   color: #54b95f;
+  &:hover,
+  &:focus {
+    color: #93F600;
+    }
 
   margin-top: 10px;
 
@@ -114,20 +124,20 @@ export const SubmitBtn = styled.button`
 
   background-color: transparent;
 
-  transition: background-color 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    scale 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+    transform 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
 
   & svg {
     height: 30px;
     width: 30px;
   }
-  &:hover svg {
-    fill: #198754;
-  }
+  
 
   &:hover,
   &:focus {
-    background-color: rgba(0, 0, 0, 0.2);
-    scale: 0.9;
+    background-color: #1c84fa;
+    transform: scale(0.9);
   }
 `;

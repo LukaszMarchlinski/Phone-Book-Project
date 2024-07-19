@@ -7,23 +7,23 @@ export const AuthNav = ({ isBarOpen }) => {
     <Wrapper>
       {!isBarOpen ? (
         <Link to="/register">
-          <AppRegistrationRoundedIcon sx={{ fontSize: 30, ml: 1 }} />
+          <AppRegistrationRoundedIcon sx={{ fontSize: 30, ml: 1, margin: 0 }} />
         </Link>
       ) : (
         <Link to="/register">
           Register
-          <AppRegistrationRoundedIcon sx={{ fontSize: 30, ml: 1 }} />
+          <AppRegistrationRoundedIcon sx={{ fontSize: 30, ml: 1, margin: 0 }} />
         </Link>
       )}
 
       {!isBarOpen ? (
         <Link to="/login">
-          <LoginRoundedIcon sx={{ fontSize: 30, ml: 1 }} />
+          <LoginRoundedIcon sx={{ fontSize: 30, ml: 1, margin: 0 }} />
         </Link>
       ) : (
         <Link to="/login">
           Log In
-          <LoginRoundedIcon sx={{ fontSize: 30, ml: 1 }} />
+          <LoginRoundedIcon sx={{ fontSize: 30, ml: 1, margin: 0 }} />
         </Link>
       )}
     </Wrapper>

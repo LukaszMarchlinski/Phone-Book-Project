@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { notifySettings } from 'utils/const';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

@@ -8,11 +8,13 @@ padding: 10px 0 10px 0;
 &.tools,
 &.center {
   text-align: center;
+  
   }
   & svg {
     color: #198754;
   }
   &:hover svg {
-    fill: #54b95f;
+    color: #93F600;
   }
+  
 `;

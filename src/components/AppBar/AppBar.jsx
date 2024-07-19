@@ -21,6 +21,7 @@ export const AppBar = () => {
     
     <NavBar
       animate={{
+
         width: isBarOpen ? '270px' : '75px',
         padding: isBarOpen ? '10px 14px' : '10px 10px',
         transition: {

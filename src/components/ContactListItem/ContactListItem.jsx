@@ -32,22 +32,51 @@ export const ContactListItem = ({
       <td>
         <AccountCircleRoundedIcon 
           color="info"
-          />
+          
+          sx={{
+            fontSize: 35,
+            color: '#1c84fa'
+          }}
+        />
       </td>
       <TableData>{name}</TableData>
-      <TableData className="center">{number}</TableData>
-      <TableData className="tools">
+      <TableData className="center"
+      >{number}</TableData>
+      <TableData className="tools"
+      >
         <IconButton
           id={id}
           type="button"
           size="small"
           onClick={handleChangeInfo}
+          sx={{
+            '&:focus': {
+              backgroundColor: '#93F600', // Kolor tła w stanie focus
+            },
+            '&:hover': {
+              backgroundColor: '#1c84fa', // Kolor tła po najechaniu
+            },
+          }}
+          
         >
           <ModeEditIcon />
-        </IconButton>
+          </IconButton>
       </TableData>
       <TableData className="tools">
-        <IconButton size="small" id={id} type="button" onClick={onDeleteClick}>
+        <IconButton
+          size="small"
+          id={id}
+          type="button"
+          onClick={onDeleteClick}
+          sx={{
+            '&:focus': {
+              backgroundColor: '#93F600', // Kolor tła w stanie focus
+            },
+            '&:hover': {
+              backgroundColor: '#1c84fa', // Kolor tła po najechaniu
+            },
+          }}
+        >
           <DeleteIcon />
         </IconButton>
       </TableData>

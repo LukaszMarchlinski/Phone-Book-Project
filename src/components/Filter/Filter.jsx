@@ -18,8 +18,40 @@ export const Filter = () => {
       label="Search by name"
       variant="outlined"
       color="info"
-      sx={{ mt: 1, minWidth: 500 }}
-      style={{background: "rgb(255, 255, 255, 0.8)"}}
-    />
+      sx={{
+        mt: 1,
+        minWidth: 500,
+        '& .MuiInputBase-input': {
+          color: 'black', // Kolor tekstu wejściowego
+        },
+        '& .MuiInputLabel-root': {
+          color: 'black', // Kolor etykiety
+          
+        },
+        '& .MuiInputLabel-root.Mui-focused': {
+          color: '#93F600', // Kolor etykiety w stanie focus
+          fontSize: '20px', // Wielkość etykiety w stanie focus
+          transform: 'translate(14px, -12px) scale(0.75)', // Transformacja etykiety w stanie focus
+          backgroundColor: 'white', // Kolor tła etykiety w stanie focus
+          padding: '0 4px',
+        },
+        '& .MuiOutlinedInput-root': {
+          '& fieldset': {
+            borderColor: '#1c84fa', // Kolor obramowania domyślnego
+          },
+          '&:hover fieldset': {
+            borderColor: '#1c84fa', // Kolor obramowania podczas hover
+          },
+          '&:active fieldset': {
+            borderColor: '#1c84fa', // Kolor obramowania podczas hover
+        },
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: '#54b95f',// Kolor obramowania
+          borderWidth: '3px',
+        },
+      
+        },
+      }}
+      />
   );
 };

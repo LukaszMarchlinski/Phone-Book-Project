@@ -60,8 +60,8 @@ export const ContactsList = ({ getContactInfo, toggleEditModal }) => {
                   <TableHead></TableHead>
                   <TableHead className="start">Name</TableHead>
                   <TableHead>Number</TableHead>
-                  <TableHead>Edit</TableHead>
-                  <TableHead>Delate</TableHead>
+                  <TableHead></TableHead>
+                  <TableHead></TableHead>
                 </tr>
               </thead>
               <tbody>

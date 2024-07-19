@@ -27,18 +27,21 @@ export const BtnOut = styled.button`
   border: none;
   cursor: pointer;
 
-  padding: 10px;
+  padding: 13px 22px;
   border-radius: 8px;
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
     scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   color: #54b95f;
 
-  &:hover {
-    transform: translate(2px);
+ 
+    
+  &:hover,
+  &.active {
+  
     scale: 0.99;
-    color: #198754;
-    background-color: rgba(0, 0, 40, 0.2);
+    color: #93F600;
+    background-color: rgba(28, 132, 250, 0.8);
   }
 `;
 export const AccentTextLarge = styled.span`
@@ -56,8 +59,9 @@ export const IconWrap = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: #54b95f;
-width: 35px;
-height: 35px;
+padding: 10px;
+background-color: #1c84fa;
+width: 30px;
+height: 30px;
 border-radius: 50%;
 `;

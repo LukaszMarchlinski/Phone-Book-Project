@@ -21,7 +21,7 @@ import { notifySettings } from 'utils/const';
 
 export const EditModal = ({ contactInfo, toggleEditModal }) => {
   const [name, setName] = useState(contactInfo.name);
-  const [number, setNumber] = useState(contactInfo.number);
+  const [number, setNumber] = useState(contactInfo.number.startsWith('+48 ') ? contactInfo.number : '+48 ' + contactInfo.number);
 
   const dispatch = useDispatch();
 
@@ -49,7 +49,15 @@ export const EditModal = ({ contactInfo, toggleEditModal }) => {
       case 'name':
         return setName(value);
       case 'number':
-        return setNumber(value);
+        // Ensure the prefix is +48 and the value contains only digits
+        if (!value.startsWith('+48 ')) {
+          value = '+48 ' + value.replace(/^\+48\s*/, '');
+        }
+        const sanitizedValue = value.replace(/[^\d+ ]/g, '');
+        if (sanitizedValue.length <= 13) { // +48 + 9 digits + space
+          setNumber(sanitizedValue);
+        }
+        return;
       default:
         break;
     }
@@ -80,10 +88,12 @@ export const EditModal = ({ contactInfo, toggleEditModal }) => {
             name="number"
             type="tel"
             label="Number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            maxLength="16"
+            pattern="\+48\s\d{9}"
+            title="Phone number must start with +48 and be followed by 9 digits"
+            maxLength="13" // +48 + 9 digits + space
             autoComplete="off"
+            required
+            
           />
           <SubmitBtn type="submit">
             <DownloadDoneIcon />

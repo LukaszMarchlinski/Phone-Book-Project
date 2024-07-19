@@ -30,7 +30,7 @@ justify-content: center;
 `;
 
 export const Table = styled.table`
-background-color: rgba(178, 186, 187, 0.7);
+background-color: rgba(215, 234, 255, 0.8);
 border-radius: 8px;
 
 padding: 10px;

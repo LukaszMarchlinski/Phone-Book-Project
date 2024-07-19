@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { notifySettings } from 'utils/const';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',

@@ -5,11 +5,10 @@ export const NavBar = styled(motion.div)`
 position: fixed;
 z-index: 10;
 top: 0;
-
 left: 0;
 height: 100vh;
 width: 270px;
-background-color: rgba(178, 186, 187, 0.5);
+background-color: rgba(215, 234, 255, 0.8);
 `;
 
 export const ToggleBtn = styled.button`
@@ -28,12 +27,12 @@ background-color: transparent;
 border-radius: 8px;
 border: none;
 cursor: pointer;
+color: #1c84fa;
+width: 95%;
 
-color: #3498DB;
-
-&:hover {
-  scale: 0.99;
-  color: #21618C;
-  background-color: rgba(0, 0, 40, 0.2);
+&:hover,
+  &.active {
+    color: #1c84fa;
+    background-color: rgba(147, 246, 0, 0.8);
   }
 `;

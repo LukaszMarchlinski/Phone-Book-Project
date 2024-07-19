@@ -23,14 +23,13 @@ export const NavLink = styled(Link)`
   padding: 12px 0 12px 0;
   font-weight: 700;
 
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-radius: 8px;
 
   color: #54b95f;
 
   &:hover,
   &.active {
-    color: #198754;
-    background-color: rgba(0, 0, 40, 0.2);
+    color: #93F600;
+    background-color: rgba(28, 132, 250, 0.8);
   }
 `;

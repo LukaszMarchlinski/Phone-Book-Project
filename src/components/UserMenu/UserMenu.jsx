@@ -36,12 +36,14 @@ export const UserMenu = ({ isBarOpen }) => {
       ) : (
         <GreetingTextSmall>
           Welcome, <AccentTextSmall>{user.name} </AccentTextSmall>
-        </GreetingTextSmall>
+          </GreetingTextSmall>
+          
       )}
 
       <BtnOut type="button" onClick={logOutHandler}>
         <LogoutIcon sx={{ fontSize: 30 }} />
       </BtnOut>
+      
     </Wrapper>
   );
 };

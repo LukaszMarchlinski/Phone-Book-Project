@@ -12,12 +12,12 @@ export const Navigation = ({ isBarOpen }) => {
     <Nav>
       {isBarOpen ? (
         <NavLink to="/">
-          <HomeRoundedIcon sx={{ fontSize: 30, mr: 1 }} />
+          <HomeRoundedIcon sx={{ fontSize: 30, mr: 1, margin: 0 }} />
           Home
         </NavLink>
       ) : (
         <NavLink to="/">
-          <HomeRoundedIcon sx={{ fontSize: 30, mr: 1 }} />
+          <HomeRoundedIcon sx={{ fontSize: 30, mr: 1, margin: 0 }} />
         </NavLink>
       )}
 
